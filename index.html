@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Sistema de Login e Registros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>SystemLogMongo</h1>
+</header>
+
+<main>
+    <section id="login-section">
+        <h2>Login</h2>
+        <form id="login-form">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
+            <button type="submit">Entrar</button>
+        </form>
+    </section>
+
+    <section id="registros-section" style="display: none;">
+        <h2>Registros</h2>
+        <ul id="registros-list">
+
+        </ul>
+    </section>
+</main>
+
+<footer>
+    <p>Usuário: <span id="nome-usuario"></span></p>
+    <p>Último acesso: <span id="ultimo-acesso"></span></p>
+</footer>
+
+<script>
+    function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    }
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const nomeUsuario = getCookie('nomeUsuario');
+      const ultimoAcesso = getCookie('ultimoAcesso');
+  
+      if (nomeUsuario && ultimoAcesso) {
+        document.getElementById('nome-usuario').innerText = nomeUsuario;
+        document.getElementById('ultimo-acesso').innerText = ultimoAcesso;
+      }
+    });
+  </script>
+  
+
+<script src="script.js"></script>
+</body>
+</html>
